@@ -16,13 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup dotnet
+    - name: Setup dotnet ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
         
-    - name: Restore
-      run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
