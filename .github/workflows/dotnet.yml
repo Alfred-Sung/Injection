@@ -20,9 +20,10 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Restore dependencies
-      run: dotnet restore -p:TargetFramework=${{ matrix.dotnet-version }}
+        
+    - name: Restore
+      run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal -f=${{ matrix.dotnet-version }}
+      run: dotnet test --no-build
