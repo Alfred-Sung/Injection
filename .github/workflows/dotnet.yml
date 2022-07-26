@@ -24,6 +24,6 @@ jobs:
     - name: Restore
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore /p:RuntimeFrameworkVersion=${{ matrix.dotnet-version }}
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal /p:RuntimeFrameworkVersion=${{ matrix.dotnet-version }}
