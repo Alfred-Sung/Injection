@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup dotnet ${{ matrix.dotnet-version }}
+    - name: Setup dotnet ${{ matrix.options.target-framework }}
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
@@ -28,6 +28,6 @@ jobs:
     - name: Restore
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore -f:RuntimeFrameworkVersion=${{ matrix.target-framework }}
+      run: dotnet build --configuration Release --no-restore -f:RuntimeFrameworkVersion=${{ matrix.options.target-framework }}
     - name: Test
-      run: dotnet test --no-restore --verbosity normal /p:RuntimeFrameworkVersion=${{ matrix.target-framework }}
+      run: dotnet test --no-restore --verbosity normal /p:RuntimeFrameworkVersion=${{ matrix.options.target-framework }}
