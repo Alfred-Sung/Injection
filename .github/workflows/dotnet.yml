@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        - dotnet-version: 3.1.x
-          target-framework: netcoreapp3.1
-        - dotnet-version: 6.0.x
-          target-framework: net6.0
+        options:
+            - dotnet-version: 3.1.x
+              target-framework: netcoreapp3.1
+            - dotnet-version: 6.0.x
+              target-framework: net6.0
 
     steps:
     - uses: actions/checkout@v3
@@ -29,4 +30,4 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore -f:RuntimeFrameworkVersion=${{ matrix.target-framework }}
     - name: Test
-      run: dotnet test --no-restore --verbosity normal -f:RuntimeFrameworkVersion=${{ matrix.target-framework }}
+      run: dotnet test --no-restore --verbosity normal /p:RuntimeFrameworkVersion=${{ matrix.target-framework }}
