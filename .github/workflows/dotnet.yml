@@ -28,6 +28,6 @@ jobs:
     - name: Restore
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore -f:TargetFramework=${{ matrix.options.target-framework }}
+      run: dotnet build --configuration Release --no-restore -p:TargetFramework=${{ matrix.options.target-framework }}
     - name: Test
-      run: dotnet test --no-restore --verbosity normal -f:TargetFramework=${{ matrix.options.target-framework }}
+      run: dotnet test --no-restore --verbosity normal -p:TargetFramework=${{ matrix.options.target-framework }}
