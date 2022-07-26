@@ -1,4 +1,4 @@
-﻿# Injection
+﻿# Injection ![](https://github.com/Alfred-Sung/Injection/actions/workflows/dotnet.yml/badge.svg)
 
 Simple DI library without the need for containers.
 
