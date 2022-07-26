@@ -1,4 +1,4 @@
-﻿# PlainDI ![](https://github.com/Alfred-Sung/PlainDI/actions/workflows/dotnet.yml/badge.svg)
+﻿# PlainDI ![](https://github.com/Alfred-Sung/PlainDI/actions/workflows/build-and-test.yml/badge.svg)
 
 Plain DI library without the need for containers.
 
