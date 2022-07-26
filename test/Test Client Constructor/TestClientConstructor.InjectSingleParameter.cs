@@ -4,7 +4,7 @@ using System;
 
 namespace PlainDI.UnitTest.TestClientConstructor {
     [TestClass]
-    public class TestClientConstructorInjectParameters {
+    public class TestClientConstructorInjectSingleParameter {
         [Injectable(typeof(Service))] public interface IService { }
 
         public class Service : IService { }
@@ -19,7 +19,7 @@ namespace PlainDI.UnitTest.TestClientConstructor {
         }
 
         [TestMethod]
-        public void TestClientConstructor_InjectParameters() {
+        public void TestClientConstructor_InjectSingleParameter() {
             Client client = Injector.Get<Client>();
 
             Assert.IsNotNull(client, "Injected client cannot be null");

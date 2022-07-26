@@ -10,8 +10,6 @@ namespace PlainDI {
      * Creates and stores instances of services
      */
     internal static class Factory {
-        //(Lifetime, Constructor, Constructor Parameters, Fields, Properties)
-        private static Dictionary<Type, (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[])> objProfiles = new Dictionary<Type, (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[])>();
         private static Dictionary<Type, object> singletons = new Dictionary<Type, object>();
 
         internal static T Get<T>(HashSet<Type> dependencies) => (T)Get(typeof(T), dependencies);
@@ -21,9 +19,7 @@ namespace PlainDI {
                 return singletons[type];
 
             // Get profile of current type
-            if (!objProfiles.ContainsKey(type))
-                objProfiles.Add(type, Profiler.GetProfile(type));
-            var profile = objProfiles[type];
+            var profile = Profiler.GetProfile(type);
 
             // Track Lifetime.Scoped objects of current type
             var scoped = new Dictionary<Type, object>();
@@ -33,15 +29,14 @@ namespace PlainDI {
                     // Types here can either be interface, abstract, or class
                     var implementedType = Linker.GetImplementationOf(paramType);
 
-                    if (!objProfiles.ContainsKey(implementedType))
-                        objProfiles.Add(implementedType, Profiler.GetProfile(paramType));
+                    Profiler.AddProfile(implementedType, paramType);
 
                     // Should be all valid classes here
                     return implementedType;
                 })
                 .Select(implementedType => {
                     // Create objects based on Injectable.Lifetime value; default is transient
-                    switch (objProfiles[implementedType].Item1) {
+                    switch (Profiler.GetProfile(implementedType).Item1) {
                         case Lifetime.Scoped:
                             if (!scoped.ContainsKey(implementedType))
                                 scoped.Add(implementedType, Linker.Get(implementedType, new HashSet<Type>(dependencies)));
@@ -64,9 +59,7 @@ namespace PlainDI {
 
         internal static void InjectFieldProperty(Dictionary<Type, object> scoped, Type type, object obj, HashSet<Type> dependencies) {
             // Get profile of current type
-            if (!objProfiles.ContainsKey(type))
-                objProfiles.Add(type, Profiler.GetProfile(type));
-            var profile = objProfiles[type];
+            var profile = Profiler.GetProfile(type);
 
             foreach (FieldInfo field in profile.Item4) {
                 var fieldType = field.FieldType;
@@ -75,13 +68,12 @@ namespace PlainDI {
                 // Types here can either be interface, abstract, or class
                 var implementedType = Linker.GetImplementationOf(fieldType);
 
-                if (!objProfiles.ContainsKey(implementedType))
-                    objProfiles.Add(implementedType, Profiler.GetProfile(fieldType));
+                Profiler.AddProfile(implementedType, fieldType);
 
                 // Should be all valid classes here
 
                 // Create objects based on Injectable.Lifetime value; default is transient
-                switch (objProfiles[implementedType].Item1) {
+                switch (Profiler.GetProfile(implementedType).Item1) {
                     case Lifetime.Scoped:
                         if (!scoped.ContainsKey(implementedType))
                             scoped.Add(implementedType, Linker.Get(implementedType, new HashSet<Type>(dependencies)));
@@ -104,13 +96,12 @@ namespace PlainDI {
                 // Types here can either be interface, abstract, or class
                 var implementedType = Linker.GetImplementationOf(propertyType);
 
-                if (!objProfiles.ContainsKey(implementedType))
-                    objProfiles.Add(implementedType, Profiler.GetProfile(propertyType));
+                Profiler.AddProfile(implementedType, propertyType);
 
                 // Should be all valid classes here
 
                 // Create objects based on Injectable.Lifetime value; default is transient
-                switch (objProfiles[implementedType].Item1) {
+                switch (Profiler.GetProfile(implementedType).Item1) {
                     case Lifetime.Scoped:
                         if (!scoped.ContainsKey(implementedType))
                             scoped.Add(implementedType, Linker.Get(implementedType, new HashSet<Type>(dependencies)));

@@ -152,6 +152,71 @@ Thrown if a dependency is found referencing an earlier service.
 
 Thrown if DI library cannot find a suitable constructor for type.
 
+### Injector.Invoke(Delegate function)
+Calls a function and injects objects into its parameters.
+
+#### Parameters
+`Delegate function`
+
+The function to call.
+
+#### Returns
+`object?`
+
+The object returned from the function else null.
+
+#### Exceptions
+
+`AttributeException`
+
+Thrown if `[Injectable]` does not decorate either an interface or an abstract class.
+
+`AttributeException`
+
+Thrown if there are multiple constructors with `[Default]` attributes.
+
+`NoImplementationException`
+
+Thrown if `[Injectable]` targetInstance does not implement type.
+
+`CircularDependencyException`
+
+Thrown if a dependency is found referencing an earlier service.
+
+`MissingMethodException`
+
+Thrown if DI library cannot find a suitable constructor for type.
+
+#### Example
+```c#
+using PlainDI.Attribute;
+
+[Injectable(typeof(Service))] 
+public interface IService  {
+    //...
+}
+
+public class Service : IService {
+    //...
+}
+```
+
+```c#
+using PlainDI;
+using PlainDI.Attribute;
+
+public class Client {
+    public void Foo(IService service) {
+        //...
+    }
+}
+
+static void Main(string[] args) {
+    //...
+    Injector.Invoke((Action<IService>)client.Foo);
+}
+```
+
 ___
 
 ## \[Injectable] attribute

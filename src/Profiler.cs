@@ -2,6 +2,7 @@
 using PlainDI.Exceptions;
 using PlainDI.Reflection;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
@@ -11,8 +12,14 @@ namespace PlainDI {
      * Scans a type and gets relevant information; constructor, constructor parameters, etc.
      */
     internal static class Profiler {
+        //(Lifetime, Constructor, Constructor Parameters, Fields, Properties)
+        private static Dictionary<Type, (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[])> objProfiles = new Dictionary<Type, (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[])>();
+
         internal static (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[]) GetProfile<T>() => GetProfile(typeof(T));
         internal static (Lifetime, ConstructorInfo, Type[], FieldInfo[], PropertyInfo[]) GetProfile([NotNull] Type type) {
+            if (objProfiles.ContainsKey(type))
+                return objProfiles[type];
+
             var attribute = type.GetCustomAttribute<InjectableAttribute>();
 
             var implementedType = Linker.GetImplementationOf(type);
@@ -29,6 +36,12 @@ namespace PlainDI {
                 typeFields,
                 typeProperties
             );
+        }
+
+        internal static void AddProfile<TImplement, TType>() => AddProfile(typeof(TImplement), typeof(TType));
+        internal static void AddProfile([NotNull] Type implementedType, [NotNull] Type type) {
+            if (!objProfiles.ContainsKey(implementedType))
+                objProfiles.Add(implementedType, GetProfile(type));
         }
 
         internal static ConstructorInfo GetConstructor<T>() => GetConstructor(typeof(T));

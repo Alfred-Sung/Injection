@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+    <PackageReadmeFile></PackageReadmeFile>
+    <RepositoryUrl></RepositoryUrl>
+    <Description></Description>
   </PropertyGroup>
 
   <ItemGroup>
