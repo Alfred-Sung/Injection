@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestServiceProperties {
+namespace PlainDI.UnitTest.TestServiceProperties {
     [TestClass]
     public class TestServicePropertiesValidClassType {
         public class A { }

@@ -1,11 +1,11 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace Injection {
+namespace PlainDI {
     /**
      * Maps requested types to their implementation
      */

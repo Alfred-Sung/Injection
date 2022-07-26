@@ -1,9 +1,9 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestAttributeUsage {
+namespace PlainDI.UnitTest.TestAttributeUsage {
     [TestClass]
     public class TestAttributeUsageInvalidInjectableClass {
         [Injectable(typeof(Service))] public class IService { }

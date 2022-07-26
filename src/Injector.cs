@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Injection.Exceptions;
+using PlainDI.Exceptions;
 
-namespace Injection {
+namespace PlainDI {
     /**
      * Actual interface of the library; the rest of the classes are protected by internal keyword
      */

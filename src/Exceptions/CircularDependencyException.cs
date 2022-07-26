@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Injection.Exceptions {
+namespace PlainDI.Exceptions {
     public class CircularDependencyException : Exception {
         public CircularDependencyException(string message) : base(message) { }
     }

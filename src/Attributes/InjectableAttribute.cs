@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Injection.Attributes {
+namespace PlainDI.Attributes {
 
     [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class InjectableAttribute : Attribute {

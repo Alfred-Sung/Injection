@@ -1,11 +1,11 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
-namespace Injection {
+namespace PlainDI {
     /**
      * Creates and stores instances of services
      */
@@ -56,7 +56,7 @@ namespace Injection {
                 .ToArray();
 
             var obj = profile.Item2.Invoke(parameterObjs);
-            // Field Property injection is separated due to Injection.InjectExisting() functionality
+            // Field Property injection is separated due to PlainDI.InjectExisting() functionality
             InjectFieldProperty(scoped, type, obj, dependencies);
 
             return obj;

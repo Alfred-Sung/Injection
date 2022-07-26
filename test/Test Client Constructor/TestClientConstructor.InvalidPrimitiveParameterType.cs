@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestClientConstructor {
+namespace PlainDI.UnitTest.TestClientConstructor {
     [TestClass]
     public class TestClientConstructorInvalidPrimitiveParameterType {
         /*
@@ -18,7 +18,7 @@ namespace Injection.UnitTest.TestClientConstructor {
 
         [TestMethod]
         public void TestClientConstructor_InvalidPrimitiveParameterType() {
-            Assert.ThrowsException<MissingMethodException>(() => Injector.Get<Client>(), "Injection does not throw exception where invalid Inject type exists");
+            Assert.ThrowsException<MissingMethodException>(() => Injector.Get<Client>(), "PlainDI does not throw exception where invalid Inject type exists");
         }
     }
 }

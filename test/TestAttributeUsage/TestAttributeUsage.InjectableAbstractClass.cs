@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestAttributeUsage {
+namespace PlainDI.UnitTest.TestAttributeUsage {
     [TestClass]
     public class TestAttributeUsageInjectableAbstractClass {
         [Injectable(typeof(Service))] public abstract class IService { }

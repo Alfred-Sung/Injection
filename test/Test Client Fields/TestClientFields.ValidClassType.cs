@@ -1,7 +1,7 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Injection.UnitTest.TestClientFields {
+namespace PlainDI.UnitTest.TestClientFields {
     [TestClass]
     public class TestClientFieldsValidClassType {
         /*

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Injection.Reflection {
+namespace PlainDI.Reflection {
     internal static partial class AttributeReflection {
         static readonly HashSet<string> ignoredAssemblies = new HashSet<string>() {
             "UnityEditor",

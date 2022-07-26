@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestClientConstructor {
+namespace PlainDI.UnitTest.TestClientConstructor {
     [TestClass]
     public class TestClientConstructorInjectParameters {
         [Injectable(typeof(Service))] public interface IService { }

@@ -1,11 +1,10 @@
-﻿# Injection ![](https://github.com/Alfred-Sung/Injection/actions/workflows/dotnet.yml/badge.svg)
+﻿# PlainDI ![](https://github.com/Alfred-Sung/PlainDI/actions/workflows/dotnet.yml/badge.svg)
 
-Simple DI library without the need for containers.
+Plain DI library without the need for containers.
 
 ### Example
 ```c#
-using Injection;
-using Injection.Attribute;
+using PlainDI.Attribute;
 
 [Injectable(typeof(Service))] 
 public interface IService  {
@@ -18,7 +17,8 @@ public class Service : IService {
 ```
 
 ```c#
-using Injection;
+using PlainDI;
+using PlainDI.Attribute;
 
 public class Client {
     [Inject] IService service;
@@ -34,7 +34,7 @@ static void Main(string[] args) {
 
 
 ## Injector Class
-Namespace: Injection
+Namespace: PlainDI
 
 Exposes all the functionality of the DI library.
 
@@ -155,7 +155,7 @@ Thrown if DI library cannot find a suitable constructor for type.
 ___
 
 ## \[Injectable] attribute
-Namespace: Injection.Attribute
+Namespace: PlainDI.Attribute
 
 ```c#
 [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
@@ -188,7 +188,7 @@ InjectableAttribute(Type targetInstance, Lifetime lifetime = Lifetime.Transient)
 ___
 
 ## \[Inject] attribute
-Namespace: Injection.Attribute
+Namespace: PlainDI.Attribute
 
 ```c#
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false)]
@@ -209,7 +209,7 @@ InjectAttribute()
 ___
 
 ## \[Default] attribute
-Namespace: Injection.Attribute
+Namespace: PlainDI.Attribute
 
 ```c#
 [AttributeUsage(AttributeTargets.Constructor)]

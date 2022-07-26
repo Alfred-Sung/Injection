@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestServiceInheritence {
+namespace PlainDI.UnitTest.TestServiceInheritence {
     [TestClass]
     public class TestServiceInheritenceDifferentImplementation {
         /*

@@ -1,4 +1,4 @@
-﻿namespace Injection.Exceptions {
+﻿namespace PlainDI.Exceptions {
     public class AttributeException : System.Exception {
         public AttributeException() { }
 

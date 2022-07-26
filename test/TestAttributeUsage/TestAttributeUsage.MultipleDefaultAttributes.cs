@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Injection.UnitTest.TestAttributeUsage {
+namespace PlainDI.UnitTest.TestAttributeUsage {
     [TestClass]
     public class TestAttributeUsageMultipleDefaultAttributes {
         [Injectable(typeof(Service))] public interface IService { }
@@ -15,7 +15,7 @@ namespace Injection.UnitTest.TestAttributeUsage {
 
         [TestMethod]
         public void TestAttributeUsage_MultipleDefaultAttributes() {
-            Assert.ThrowsException<AttributeException>(() => Injector.Get<Client>(), "Injection does not throw exception where invalid multiple Default attributes exists");
+            Assert.ThrowsException<AttributeException>(() => Injector.Get<Client>(), "PlainDI does not throw exception where invalid multiple Default attributes exists");
         }
     }
 }

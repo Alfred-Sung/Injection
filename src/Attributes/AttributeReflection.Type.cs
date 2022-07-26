@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Injection.Reflection {
+namespace PlainDI.Reflection {
     internal static partial class AttributeReflection {
         public static IEnumerable<PropertyInfo> GetTypePropertiesWithAttribute<TType, TAttribute>(BindingFlags bindingAttr = BindingFlags.Default) => GetTypePropertiesWithAttribute(typeof(TType), typeof(TAttribute), bindingAttr);
 

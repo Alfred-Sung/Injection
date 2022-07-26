@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestServiceLifetime {
+namespace PlainDI.UnitTest.TestServiceLifetime {
     [TestClass]
     public class TestServiceLifetimeTransientField {
         [Injectable(typeof(Service), Lifetime.Transient)] public interface IService { }

@@ -1,9 +1,9 @@
-﻿using Injection.Attributes;
+﻿using PlainDI.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
 
-namespace Injection.UnitTest.TestPerformance {
+namespace PlainDI.UnitTest.TestPerformance {
     [TestClass]
     public class TestPerformanceDeepComplexHierarchy {
         [Injectable(typeof(A), Lifetime.Transient)] public interface IA { }

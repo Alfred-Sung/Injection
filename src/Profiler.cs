@@ -1,12 +1,12 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
-using Injection.Reflection;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
+using PlainDI.Reflection;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
-namespace Injection {
+namespace PlainDI {
     /**
      * Scans a type and gets relevant information; constructor, constructor parameters, etc.
      */

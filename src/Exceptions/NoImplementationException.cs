@@ -1,4 +1,4 @@
-﻿namespace Injection.Exceptions {
+﻿namespace PlainDI.Exceptions {
     public class NoImplementationException : System.Exception {
         public NoImplementationException() { }
 

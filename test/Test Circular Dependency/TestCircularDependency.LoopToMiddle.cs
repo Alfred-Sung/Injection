@@ -1,9 +1,9 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Injection.UnitTest.TestCircularDependency {
+namespace PlainDI.UnitTest.TestCircularDependency {
     [TestClass]
     public class TestcircularDependencyLoopToMiddle {
         [Injectable(typeof(A))] public interface IA { }

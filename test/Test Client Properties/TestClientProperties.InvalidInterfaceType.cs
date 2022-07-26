@@ -1,8 +1,8 @@
-﻿using Injection.Attributes;
-using Injection.Exceptions;
+﻿using PlainDI.Attributes;
+using PlainDI.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Injection.UnitTest.TestClientProperties {
+namespace PlainDI.UnitTest.TestClientProperties {
     [TestClass]
     public class TestClientPropertiesInvalidInterfaceType {
         /*
@@ -19,7 +19,7 @@ namespace Injection.UnitTest.TestClientProperties {
 
         [TestMethod]
         public void TestClientProperties_InvalidInterfaceType() {
-            Assert.ThrowsException<NoImplementationException>(() => Injector.Get<Client>(), "Injection does not throw exception where invalid Inject type exists");
+            Assert.ThrowsException<NoImplementationException>(() => Injector.Get<Client>(), "PlainDI does not throw exception where invalid Inject type exists");
         }
     }
 }

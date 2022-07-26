@@ -1,7 +1,7 @@
-﻿using Injection.Exceptions;
+﻿using PlainDI.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Injection.UnitTest.TestCircularDependency {
+namespace PlainDI.UnitTest.TestCircularDependency {
     [TestClass]
     public class TestcircularDependencySelfDependency {
 
